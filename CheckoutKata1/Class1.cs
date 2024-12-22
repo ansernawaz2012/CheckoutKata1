@@ -3,12 +3,19 @@
     public class Checkout
     {
         private int totalPrice = 0;
+        private readonly Dictionary<string, int> prices = new Dictionary<string, int>
+    {
+        { "A", 50 },
+        { "B", 30 },
+        { "C", 20 },
+        { "D", 15 }
+    };
 
         public void Scan(string item)
         {
-            if (item == "A")
+            if (prices.ContainsKey(item))
             {
-                totalPrice += 50;
+                totalPrice += prices[item];
             }
         }
 
@@ -17,5 +24,6 @@
             return totalPrice;
         }
     }
+
 
 }
