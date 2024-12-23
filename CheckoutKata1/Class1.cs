@@ -1,6 +1,14 @@
 ﻿namespace CheckoutKata1
 {
-    public class Checkout
+
+    public interface ICheckout
+    {
+        void Scan(string item);
+        int GetTotalPrice();
+    }
+
+
+    public class Checkout : ICheckout
     {
         private int totalPrice = 0;
         private readonly Dictionary<string, int> prices = new Dictionary<string, int>

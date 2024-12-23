@@ -5,7 +5,7 @@ namespace CheckoutKata1.Tests
         [Fact]
         public void Scan_SingleItem_ReturnsCorrectPrice()
         {
-            var checkout = new Checkout();
+            ICheckout checkout = new Checkout();
             checkout.Scan("A");
             Assert.Equal(50, checkout.GetTotalPrice());
         }
@@ -13,7 +13,7 @@ namespace CheckoutKata1.Tests
         [Fact]
         public void Scan_MultipleItems_ReturnsCorrectTotalPrice()
         {
-            var checkout = new Checkout();
+            ICheckout checkout = new Checkout();
             checkout.Scan("A");
             checkout.Scan("B");
             Assert.Equal(80, checkout.GetTotalPrice());
@@ -22,7 +22,7 @@ namespace CheckoutKata1.Tests
         [Fact]
         public void Scan_SpecialPrice_ReturnsCorrectTotalPriceForItemA()
         {
-            var checkout = new Checkout();
+            ICheckout checkout = new Checkout();
             checkout.Scan("A");
             checkout.Scan("A");
             checkout.Scan("A");
@@ -32,11 +32,13 @@ namespace CheckoutKata1.Tests
         [Fact]
         public void Scan_SpecialPrice_ReturnsCorrectTotalPriceForItemB()
         {
-            var checkout = new Checkout();
+            ICheckout checkout = new Checkout();
             checkout.Scan("B");
             checkout.Scan("B");
             Assert.Equal(45, checkout.GetTotalPrice());
         }
+
+        
     }
 
 }
